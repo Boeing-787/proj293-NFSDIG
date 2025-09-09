@@ -1,0 +1,8 @@
+*_bpfel.o
+*_bpfel.go
+output/*
+traceOutput/*
+nfs_output/*
+xdpOutput/*
+c/.output/*
+nfsdig

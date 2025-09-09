@@ -1,0 +1,10 @@
+{
+    "nfs_output/op_latency/nfs_weak_revalidate.csv": 3,
+    "nfs_output/op_latency/nfs_getattr.csv": 131,
+    "nfs_output/op_latency/nfs_permission.csv": 243,
+    "nfs_output/op_latency/nfs4_lookup_revalidate.csv": 11,
+    "nfs_output/op_latency/nfs_dentry_delete.csv": 128,
+    "nfs_output/op_latency/nfs_check_flags.csv": 3,
+    "nfs_output/op_latency/nfs4_file_flush.csv": 127,
+    "nfs_output/op_latency/nfs_file_release.csv": 31
+}

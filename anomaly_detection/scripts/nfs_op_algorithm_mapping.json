@@ -1,0 +1,10 @@
+{
+    "nfs_output/op_latency/nfs_weak_revalidate.csv": "EWMAControlThreeSigmaDetector",
+    "nfs_output/op_latency/nfs_getattr.csv": "EWMAControlThreeSigmaDetector",
+    "nfs_output/op_latency/nfs_permission.csv": "EWMAControlThreeSigmaDetector",
+    "nfs_output/op_latency/nfs4_lookup_revalidate.csv": "EWMAControlThreeSigmaDetector",
+    "nfs_output/op_latency/nfs_dentry_delete.csv": "EWMAControlThreeSigmaDetector",
+    "nfs_output/op_latency/nfs_check_flags.csv": "EWMAControlThreeSigmaDetector",
+    "nfs_output/op_latency/nfs4_file_flush.csv": "EWMAControlThreeSigmaDetector",
+    "nfs_output/op_latency/nfs_file_release.csv": "EWMAControlThreeSigmaDetector"
+}

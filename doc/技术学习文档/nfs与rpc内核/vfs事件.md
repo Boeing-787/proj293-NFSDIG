@@ -1,0 +1,170 @@
+ftrace支持的函数：（fentry只能hook那些在available_filter_functions中列出的函数）
+vfs_fadvise
+vfs_fallocate
+vfs_truncate
+vfs_fchmod
+vfs_fchown
+vfs_open
+vfs_setpos
+vfs_llseek
+vfs_iocb_iter_read
+vfs_iter_read
+vfs_readv
+vfs_iter_write
+vfs_writev
+vfs_iocb_iter_write
+vfs_read
+vfs_write
+vfs_copy_file_range
+vfs_get_tree
+vfs_getattr_nosec
+vfs_getattr
+vfs_statx
+vfs_fstat
+vfs_fstatat
+vfs_get_link
+vfs_tmpfile
+vfs_rmdir
+vfs_unlink
+vfs_mkobj
+vfs_symlink
+vfs_create
+vfs_mkdir
+vfs_mknod
+vfs_link
+vfs_rename
+vfs_path_parent_lookup
+vfs_path_lookup
+vfs_readlink
+vfs_ioctl
+vfs_fileattr_get
+vfs_fileattr_set
+vfs_create_mount
+vfs_kern_mount.part.0
+vfs_kern_mount
+vfs_submount
+vfs_listxattr
+vfs_getxattr
+vfs_removexattr
+vfs_setxattr
+vfs_getxattr_alloc
+vfs_splice_read
+vfs_fsync_range
+vfs_fsync
+vfs_utimes
+vfs_get_fsid
+vfs_statfs.part.0.isra.0
+vfs_statfs
+vfs_parse_comma_sep
+vfs_parse_fs_param_source
+vfs_parse_fs_param
+vfs_parse_fs_string
+vfs_parse_monolithic_sep
+vfs_dup_fs_context
+vfs_clean_context
+vfs_cmd_create
+vfsgid_in_group_p
+vfs_dedupe_file_range_one
+vfs_dedupe_file_range
+vfs_dedupe_file_range_compare.constprop.0
+vfs_clone_file_range
+vfs_inode_has_locks
+vfs_cancel_lock
+vfs_test_lock
+vfs_lock_file
+vfs_setlease
+vfs_set_acl
+vfs_remove_acl
+vfs_get_acl
+vfs_dentry_acceptable
+vfs_cleanup_quota_inode
+
+
+内核符号：
+ffffffffa42dcbc0 T vfs_fallocate
+ffffffffa42dd480 T vfs_truncate
+ffffffffa42de420 T vfs_fchmod
+ffffffffa42dea00 T vfs_fchown
+ffffffffa42dec10 T vfs_open
+ffffffffa42dfa50 T vfs_setpos
+ffffffffa42dfd60 T vfs_llseek
+ffffffffa42e0730 T vfs_iocb_iter_read
+ffffffffa42e0890 T vfs_iter_read
+ffffffffa42e09f0 t vfs_readv
+ffffffffa42e1460 T vfs_iter_write
+ffffffffa42e16a0 t vfs_writev
+ffffffffa42e21e0 T vfs_iocb_iter_write
+ffffffffa42e3110 T vfs_read
+ffffffffa42e3bd0 T vfs_write
+ffffffffa42e49d0 T vfs_copy_file_range
+ffffffffa42e6ad0 T vfs_get_tree
+ffffffffa42eb1e0 T vfs_getattr_nosec
+ffffffffa42eb2f0 T vfs_getattr
+ffffffffa42ebec0 t vfs_statx
+ffffffffa42ec0a0 T vfs_fstat
+ffffffffa42ecb10 T vfs_fstatat
+ffffffffa42f42f0 T vfs_get_link
+ffffffffa42f6010 t vfs_tmpfile
+ffffffffa42f6ce0 T vfs_rmdir
+ffffffffa42f75e0 T vfs_unlink
+ffffffffa42f79e0 T vfs_mkobj
+ffffffffa42f7be0 T vfs_symlink
+ffffffffa42f7de0 T vfs_create
+ffffffffa42f8030 T vfs_mkdir
+ffffffffa42f82a0 T vfs_mknod
+ffffffffa42f85b0 T vfs_link
+ffffffffa42f8da0 T vfs_rename
+ffffffffa42fb5d0 T vfs_path_parent_lookup
+ffffffffa42fc670 T vfs_path_lookup
+ffffffffa42fea60 T vfs_readlink
+ffffffffa4300590 T vfs_ioctl
+ffffffffa4300600 T vfs_fileattr_get
+ffffffffa4300ef0 T vfs_fileattr_set
+ffffffffa4315f40 T vfs_create_mount
+ffffffffa43160e0 t vfs_kern_mount.part.0
+ffffffffa43161c0 T vfs_kern_mount
+ffffffffa4316210 T vfs_submount
+ffffffffa4320310 T vfs_listxattr
+ffffffffa4320e10 T vfs_getxattr
+ffffffffa4321090 T vfs_removexattr
+ffffffffa43219f0 T vfs_setxattr
+ffffffffa4321b90 T vfs_getxattr_alloc
+ffffffffa4332480 T vfs_splice_read
+ffffffffa4335e50 T vfs_fsync_range
+ffffffffa43363f0 T vfs_fsync
+ffffffffa4336ae0 T vfs_utimes
+ffffffffa4339180 T vfs_get_fsid
+ffffffffa4339780 t vfs_statfs.part.0.isra.0
+ffffffffa4339820 T vfs_statfs
+ffffffffa433afa0 t vfs_parse_comma_sep
+ffffffffa433b380 T vfs_parse_fs_param_source
+ffffffffa433b430 T vfs_parse_fs_param
+ffffffffa433b560 T vfs_parse_fs_string
+ffffffffa433b620 T vfs_parse_monolithic_sep
+ffffffffa433bc20 T vfs_dup_fs_context
+ffffffffa433c2b0 T vfs_clean_context
+ffffffffa433d180 t vfs_cmd_create
+ffffffffa433e6f0 T vfsgid_in_group_p
+ffffffffa433ed70 T vfs_dedupe_file_range_one
+ffffffffa433ef80 T vfs_dedupe_file_range
+ffffffffa433f1a0 t vfs_dedupe_file_range_compare.constprop.0
+ffffffffa433f510 T vfs_clone_file_range
+ffffffffa4377860 T vfs_inode_has_locks
+ffffffffa4377fc0 T vfs_cancel_lock
+ffffffffa4379fd0 T vfs_test_lock
+ffffffffa437ba10 T vfs_lock_file
+ffffffffa437c550 T vfs_setlease
+ffffffffa4386270 T vfs_set_acl
+ffffffffa43865a0 T vfs_remove_acl
+ffffffffa4387140 T vfs_get_acl
+ffffffffa438a3f0 t vfs_dentry_acceptable
+ffffffffa43943e0 t vfs_cleanup_quota_inode
+ffffffffa45781f0 t vfsuid_eq_kuid
+ffffffffa4578220 t vfsgid_eq_kgid
+ffffffffa4578250 t vfsuid_gt_kuid
+ffffffffa4578270 t vfsgid_gt_kgid
+ffffffffa4578290 t vfsuid_lt_kuid
+ffffffffa45782b0 t vfsgid_lt_kgid
+ffffffffa4fcc8dc t vfs_dedupe_file_range_compare.constprop.0.cold
+ffffffffa6721060 T vfs_caches_init_early
+ffffffffa6721130 T vfs_caches_init

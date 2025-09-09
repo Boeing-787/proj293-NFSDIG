@@ -1,0 +1,57 @@
+[global]
+directory=/mnt/nfs_test
+direct=1
+group_reporting=1
+time_based=1
+runtime=120
+ioengine=libaio
+
+# 小文件创建测试
+[tiny_create]
+name=tiny_file_create
+rw=write
+bs=1k
+size=1M
+numjobs=16
+iodepth=8
+nrfiles=1000
+
+# 小文件读取测试
+[tiny_read]
+name=tiny_file_read
+rw=randread
+bs=1k
+size=1M
+numjobs=16
+iodepth=8
+nrfiles=1000
+
+# 小文件混合读写测试
+[tiny_mixed]
+name=tiny_file_mixed
+rw=randrw
+bs=1k
+size=1M
+numjobs=8
+iodepth=4
+nrfiles=500
+rwmixread=70
+
+# 极小文件测试（512字节）
+[micro_create]
+name=micro_file_create
+rw=write
+bs=512
+size=512
+numjobs=32
+iodepth=16
+nrfiles=2000
+
+[micro_read]
+name=micro_file_read
+rw=randread
+bs=512
+size=512
+numjobs=32
+iodepth=16
+nrfiles=2000 

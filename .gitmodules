@@ -1,0 +1,9 @@
+[submodule "nfstrace"]
+	path = nfstrace
+	url = https://github.com/epam/nfstrace.git
+[submodule "libbpf"]
+	path = c/libbpf
+	url = https://github.com/libbpf/libbpf.git
+[submodule "c/blazesym"]
+	path = c/blazesym
+	url = https://github.com/libbpf/blazesym

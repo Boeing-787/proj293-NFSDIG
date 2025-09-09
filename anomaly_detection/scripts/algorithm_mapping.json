@@ -1,0 +1,7 @@
+{
+    "output/memory/memory.csv": "jumpstarter",
+    "output/cpu/cpu.csv": "jumpstarter",
+    "output/network/network.csv": "jumpstarter",
+    "output/disk/disk.csv": "jumpstarter",
+    "output/nfs/nfs.csv": "jumpstarter"
+}

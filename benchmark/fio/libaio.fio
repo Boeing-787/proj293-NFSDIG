@@ -1,0 +1,63 @@
+[global]
+directory=/mnt/nfs_test
+direct=1
+group_reporting=1
+time_based=1
+runtime=180
+ioengine=libaio
+
+# 高并发异步读测试
+[libaio_read_high]
+name=libaio_high_read
+rw=randread
+bs=4k
+size=2G
+numjobs=32
+iodepth=64
+
+# 高并发异步写测试
+[libaio_write_high]
+name=libaio_high_write
+rw=randwrite
+bs=4k
+size=2G
+numjobs=32
+iodepth=64
+
+# 大块异步顺序读
+[libaio_seq_read_large]
+name=libaio_seq_read_large
+rw=read
+bs=1M
+size=5G
+numjobs=8
+iodepth=16
+
+# 大块异步顺序写
+[libaio_seq_write_large]
+name=libaio_seq_write_large
+rw=write
+bs=1M
+size=5G
+numjobs=8
+iodepth=16
+
+# 异步混合读写测试
+[libaio_mixed]
+name=libaio_mixed_rw
+rw=randrw
+bs=4k
+size=1G
+numjobs=16
+iodepth=32
+rwmixread=60
+
+# 极限异步测试
+[libaio_extreme]
+name=libaio_extreme
+rw=randrw
+bs=4k
+size=1G
+numjobs=64
+iodepth=128
+rwmixread=50 

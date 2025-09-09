@@ -1,0 +1,168 @@
+************ 4.0.6 STACK TRACE ******************
+
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.033930] BUG: unable to handle kernel NULL pointer dereference at 0000000000000150
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] IP: [<ffffffff8126d075>] locks_get_lock_context+0x5/0xc0
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] PGD 0 
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] Oops: 0000 [#1] SMP 
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] Modules linked in: fuse xt_conntrack iptable_nat nf_nat_ipv4 nf_nat nfnetlink_queue nfnetlink_log nfnetlink bluetooth nf_conntrack_ipv4 nf_defrag_ipv4 ipt_CLUSTERIP nf_conntrack rpcsec_gss_krb5 nfsv4 dns_resolver nfs fscache binfmt_misc cfg80211 rfkill coretemp kvm_intel kvm ipmi_ssif iTCO_wdt iTCO_vendor_support ipmi_devintf gpio_ich i5000_edac edac_core dcdbas lpc_ich mfd_core shpchp ipmi_si tpm_tis i5k_amb tpm ipmi_msghandler acpi_cpufreq nfsd auth_rpcgss nfs_acl lockd grace sunrpc amdkfd amd_iommu_v2 radeon i2c_algo_bit drm_kms_helper ttm mptsas drm serio_raw scsi_transport_sas 8021q mptscsih garp stp ata_generic mptbase llc pata_acpi mrp bnx2
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] CPU: 1 PID: 297 Comm: kworker/1:1H Not tainted 4.0.6-300.fc22.x86_64 #1
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] Hardware name: Dell Inc. PowerEdge 1950/0TT740, BIOS 2.2.6 02/05/2008
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] Workqueue: rpciod rpc_async_schedule [sunrpc]
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] task: ffff8800baa3a7c0 ti: ffff880036504000 task.ti: ffff880036504000
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] RIP: 0010:[<ffffffff8126d075>]  [<ffffffff8126d075>] locks_get_lock_context+0x5/0xc0
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] RSP: 0018:ffff880036507c10  EFLAGS: 00010246
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] RAX: ffff880036507c50 RBX: ffff88042a222280 RCX: 0000000000000003
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] RDX: 0000000000000000 RSI: ffff88042a222280 RDI: 0000000000000000
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] RBP: ffff880036507c98 R08: ffff8803658f9cd0 R09: ffff8803658f9c90
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] R10: ffff8803658f9cc8 R11: 000000020cbfbe6d R12: ffff88042a2222d8
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] R13: ffff88042a222280 R14: ffff8804041bb500 R15: ffff8801cc2aa788
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] FS:  0000000000000000(0000) GS:ffff88043fc40000(0000) knlGS:0000000000000000
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] CS:  0010 DS: 0000 ES: 0000 CR0: 000000008005003b
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] CR2: 0000000000000150 CR3: 0000000001c0b000 CR4: 00000000000007e0
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] Stack:
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  ffffffff8126df1d ffff88033da6c540 0000000000000001 ffff880036507c88
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  00000000a02f273e 0000000200000000 0000000000000000 ffff880000000000
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  ffff880036507c50 ffff880036507c50 00000000fe97c66c ffff8801cc2aa700
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] Call Trace:
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffff8126df1d>] ? __posix_lock_file+0x3d/0x750
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffff8126e69a>] posix_lock_file_wait+0x4a/0x120
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffffa02f6aa0>] ? rpc_destroy_wait_queue+0x20/0x20 [sunrpc]
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffffa05ab10d>] do_vfs_lock+0x2d/0x30 [nfsv4]
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffffa05ac272>] nfs4_locku_done+0x82/0x120 [nfsv4]
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffffa02f6aa0>] ? rpc_destroy_wait_queue+0x20/0x20 [sunrpc]
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffffa02f6aa0>] ? rpc_destroy_wait_queue+0x20/0x20 [sunrpc]
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffffa02f6acc>] rpc_exit_task+0x2c/0xa0 [sunrpc]
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffffa02ebdf0>] ? call_refreshresult+0x150/0x150 [sunrpc]
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffffa02f76b0>] __rpc_execute+0x90/0x460 [sunrpc]
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffffa02f7a95>] rpc_async_schedule+0x15/0x20 [sunrpc]
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffff810b5a0b>] process_one_work+0x1bb/0x410
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffff810b5cb3>] worker_thread+0x53/0x470
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffff810b5c60>] ? process_one_work+0x410/0x410
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffff810b5c60>] ? process_one_work+0x410/0x410
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffff810bb718>] kthread+0xd8/0xf0
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffff810bb640>] ? kthread_worker_fn+0x180/0x180
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffff81789dd8>] ret_from_fork+0x58/0x90
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  [<ffffffff810bb640>] ? kthread_worker_fn+0x180/0x180
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] Code: 9d 12 a8 00 00 75 ab be 58 01 00 00 48 c7 c7 c6 31 a7 81 e8 be f7 e2 ff c6 05 83 12 a8 00 01 eb 91 0f 1f 44 00 00 66 66 66 66 90 <48> 8b 87 50 01 00 00 48 85 c0 74 07 c3 66 0f 1f 44 00 00 55 be 
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] RIP  [<ffffffff8126d075>] locks_get_lock_context+0x5/0xc0
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886]  RSP <ffff880036507c10>
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] CR2: 0000000000000150
+Sep 18 19:27:45 compute-linux03 kernel: [4509160.034886] ---[ end trace bbb3cc330388f100 ]---
+
+
+*********************** 4.1.6 STACK TRACE  ********************
+
+
+Sep 15 13:32:06 ct-desk01 cinnamon-session[10782]: WARNING: Resuming logout sequence...
+Sep 15 13:32:07 ct-desk01 polkitd[718]: Unregistered Authentication Agent for unix-session:5 (system bus name :1.169, object path /org/gnome/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.147152] BUG: unable to handle kernel NULL pointer dereference at 0000000000000150
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.147432] IP: [<ffffffff8127aed8>] locks_get_lock_context+0x8/0x90
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.147590] PGD 0 
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.147730] Oops: 0000 [#1] SMP 
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.147947] Modules linked in: bnep bluetooth rfkill rpcsec_gss_krb5 nfsv4 dns_resolver nfs fscache binfmt_misc fuse snd_hda_codec_hdmi snd_hda_codec_realtek snd_hda_codec_generic snd_hda_intel snd_hda_controller nvidia(POE) snd_hda_codec snd_hda_core snd_hwdep intel_rapl snd_seq iosf_mbi snd_seq_device x86_pkg_temp_thermal coretemp kvm_intel snd_pcm drm kvm iTCO_wdt iTCO_vendor_support snd_timer crct10dif_pclmul mei_me crc32_pclmul dcdbas snd lpc_ich crc32c_intel mei shpchp i2c_i801 mfd_core ghash_clmulni_intel soundcore video nfsd nfs_acl lockd auth_rpcgss grace sunrpc 8021q garp stp llc mrp e1000e serio_raw ptp pps_core
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.152638] CPU: 1 PID: 345 Comm: kworker/1:1H Tainted: P           OE   4.1.6-200.fc22.x86_64 #1
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.152719] Hardware name: Dell Inc. OptiPlex 9020/0N4YC8, BIOS A11 04/01/2015
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.152807] Workqueue: rpciod rpc_async_schedule [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.152960] task: ffff880213913b40 ti: ffff880036b50000 task.ti: ffff880036b50000
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.153038] RIP: 0010:[<ffffffff8127aed8>]  [<ffffffff8127aed8>] locks_get_lock_context+0x8/0x90
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.153189] RSP: 0018:ffff880036b53c10  EFLAGS: 00010246
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.153265] RAX: ffff880036b53c50 RBX: ffff880201ed6280 RCX: 00000000fffffff7
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.153343] RDX: 0000000000000000 RSI: 0000000000000002 RDI: 0000000000000000
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.153548] RBP: ffff880036b53c98 R08: ffff8800cfeb46d0 R09: ffff8800cfeb4690
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.153752] R10: ffff8800cfeb46c8 R11: 0000000000000000 R12: ffff880201ed62d8
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.153957] R13: ffff880201ed6280 R14: 0000000000000000 R15: ffff8801d1748e88
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.154174] FS:  0000000000000000(0000) GS:ffff88021dc40000(0000) knlGS:0000000000000000
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.154536] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.154792] CR2: 0000000000000150 CR3: 00000000ddbdf000 CR4: 00000000001406e0
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.155095] Stack:
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.155382]  ffffffff8127bdf0 ffff880036b53c38 00000000810cb69a ffff880036b53c58
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.156033]  00000000d896cf00 0000000200000000 ffffffff810cb6fd 0000000000000000
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.156666]  ffff880036b53c50 ffff880036b53c50 000000007979613a ffff8801d1748e00
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.157274] Call Trace:
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.157475]  [<ffffffff8127bdf0>] ? __posix_lock_file+0x40/0x760
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.157680]  [<ffffffff810cb6fd>] ? ttwu_do_wakeup+0x1d/0xe0
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.157884]  [<ffffffff8127c57a>] posix_lock_file_wait+0x4a/0x120
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.158096]  [<ffffffffa0443c89>] ? nfs4_free_slot+0x39/0xa0 [nfsv4]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.158349]  [<ffffffffa042019d>] do_vfs_lock+0x2d/0x30 [nfsv4]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.158555]  [<ffffffffa0421302>] nfs4_locku_done+0x82/0x120 [nfsv4]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.158781]  [<ffffffffa0091a30>] ? __rpc_sleep_on_priority+0x390/0x390 [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.159184]  [<ffffffffa0091a30>] ? __rpc_sleep_on_priority+0x390/0x390 [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.159527]  [<ffffffffa0091a5c>] rpc_exit_task+0x2c/0xa0 [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.159732]  [<ffffffffa0087450>] ? call_refreshresult+0x150/0x150 [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.159940]  [<ffffffffa0092640>] __rpc_execute+0x90/0x460 [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.160146]  [<ffffffffa0092a25>] rpc_async_schedule+0x15/0x20 [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.160352]  [<ffffffff810baadb>] process_one_work+0x1bb/0x410
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.160555]  [<ffffffff810bad83>] worker_thread+0x53/0x480
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.160756]  [<ffffffff810bad30>] ? process_one_work+0x410/0x410
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.160959]  [<ffffffff810bad30>] ? process_one_work+0x410/0x410
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.161162]  [<ffffffff810c0bf8>] kthread+0xd8/0xf0
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.161363]  [<ffffffff810c0b20>] ? kthread_worker_fn+0x180/0x180
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.161567]  [<ffffffff817a2322>] ret_from_fork+0x42/0x70
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.161769]  [<ffffffff810c0b20>] ? kthread_worker_fn+0x180/0x180
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.162004] Code: 00 00 75 ab be 53 01 00 00 48 c7 c7 94 fb a5 81 e8 ae 68 e2 ff c6 05 8e 9b a8 00 01 eb 91 0f 1f 44 00 00 0f 1f 44 00 00 83 fe 02 <48> 8b 87 50 01 00 00 74 7d 48 85 c0 75 78 55 be d0 00 00 00 48 
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.166933] RIP  [<ffffffff8127aed8>] locks_get_lock_context+0x8/0x90
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.167208]  RSP <ffff880036b53c10>
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.167429] CR2: 0000000000000150
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.167697] ---[ end trace c909eb69bc3d483c ]---
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.167948] BUG: unable to handle kernel paging request at ffffffffffffffd8
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168336] IP: [<ffffffff810c10c0>] kthread_data+0x10/0x20
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168337] PGD 1c0e067 PUD 1c10067 PMD 0 
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168338] Oops: 0000 [#2] SMP 
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168362] Modules linked in: bnep bluetooth rfkill rpcsec_gss_krb5 nfsv4 dns_resolver nfs fscache binfmt_misc fuse snd_hda_codec_hdmi snd_hda_codec_realtek snd_hda_codec_generic snd_hda_intel snd_hda_controller nvidia(POE) snd_hda_codec snd_hda_core snd_hwdep intel_rapl snd_seq iosf_mbi snd_seq_device x86_pkg_temp_thermal coretemp kvm_intel snd_pcm drm kvm iTCO_wdt iTCO_vendor_support snd_timer crct10dif_pclmul mei_me crc32_pclmul dcdbas snd lpc_ich crc32c_intel mei shpchp i2c_i801 mfd_core ghash_clmulni_intel soundcore video nfsd nfs_acl lockd auth_rpcgss grace sunrpc 8021q garp stp llc mrp e1000e serio_raw ptp pps_core
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168364] CPU: 1 PID: 345 Comm: kworker/1:1H Tainted: P      D    OE   4.1.6-200.fc22.x86_64 #1
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168364] Hardware name: Dell Inc. OptiPlex 9020/0N4YC8, BIOS A11 04/01/2015
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168370] task: ffff880213913b40 ti: ffff880036b50000 task.ti: ffff880036b50000
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168371] RIP: 0010:[<ffffffff810c10c0>]  [<ffffffff810c10c0>] kthread_data+0x10/0x20
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168372] RSP: 0018:ffff880036b538a8  EFLAGS: 00010096
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168372] RAX: 0000000000000000 RBX: 0000000000000001 RCX: 0000000000000007
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168372] RDX: 0000000000000007 RSI: 0000000000000001 RDI: ffff880213913b40
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168372] RBP: ffff880036b538a8 R08: ffff880213913bd0 R09: 0000000000000000
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168373] R10: ffff8802123eb180 R11: 000000000000001a R12: 0000000000017800
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168373] R13: ffff880213913b40 R14: 0000000000000001 R15: 0000000000000000
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168374] FS:  0000000000000000(0000) GS:ffff88021dc40000(0000) knlGS:0000000000000000
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168374] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168374] CR2: 0000000000000028 CR3: 00000000ddbdf000 CR4: 00000000001406e0
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168375] Stack:
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168376]  ffff880036b538c8 ffffffff810bb8a5 ffff880036b538c8 ffff88021dc57800
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168376]  ffff880036b53918 ffffffff8179dcc6 ffff880200000000 ffff880213913b40
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168377]  ffffffff81c5e1a0 ffff880036b54000 ffff880213914250 ffff880036b53970
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168377] Call Trace:
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168379]  [<ffffffff810bb8a5>] wq_worker_sleeping+0x15/0xa0
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168382]  [<ffffffff8179dcc6>] __schedule+0x4d6/0x720
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168383]  [<ffffffff8179df47>] schedule+0x37/0x90
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168385]  [<ffffffff810a43e2>] do_exit+0x852/0xb30
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168387]  [<ffffffff8101879f>] oops_end+0x9f/0xe0
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168389]  [<ffffffff810683bf>] no_context+0x13f/0x3a0
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168390]  [<ffffffff810686a0>] __bad_area_nosemaphore+0x80/0x210
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168390]  [<ffffffff81068843>] bad_area_nosemaphore+0x13/0x20
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168391]  [<ffffffff81068b5e>] __do_page_fault+0xce/0x440
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168398]  [<ffffffffa0434144>] ? decode_getfattr_attrs+0xba4/0x1700 [nfsv4]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168399]  [<ffffffff81068eff>] do_page_fault+0x2f/0x80
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168401]  [<ffffffff817a3f18>] page_fault+0x28/0x30
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168403]  [<ffffffff8127aed8>] ? locks_get_lock_context+0x8/0x90
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168404]  [<ffffffff8127bdf0>] ? __posix_lock_file+0x40/0x760
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168405]  [<ffffffff810cb6fd>] ? ttwu_do_wakeup+0x1d/0xe0
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168406]  [<ffffffff8127c57a>] posix_lock_file_wait+0x4a/0x120
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168411]  [<ffffffffa0443c89>] ? nfs4_free_slot+0x39/0xa0 [nfsv4]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168414]  [<ffffffffa042019d>] do_vfs_lock+0x2d/0x30 [nfsv4]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168416]  [<ffffffffa0421302>] nfs4_locku_done+0x82/0x120 [nfsv4]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168422]  [<ffffffffa0091a30>] ? __rpc_sleep_on_priority+0x390/0x390 [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168426]  [<ffffffffa0091a30>] ? __rpc_sleep_on_priority+0x390/0x390 [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168430]  [<ffffffffa0091a5c>] rpc_exit_task+0x2c/0xa0 [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168433]  [<ffffffffa0087450>] ? call_refreshresult+0x150/0x150 [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168436]  [<ffffffffa0092640>] __rpc_execute+0x90/0x460 [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168440]  [<ffffffffa0092a25>] rpc_async_schedule+0x15/0x20 [sunrpc]
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168441]  [<ffffffff810baadb>] process_one_work+0x1bb/0x410
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168442]  [<ffffffff810bad83>] worker_thread+0x53/0x480
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168443]  [<ffffffff810bad30>] ? process_one_work+0x410/0x410
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168444]  [<ffffffff810bad30>] ? process_one_work+0x410/0x410
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168444]  [<ffffffff810c0bf8>] kthread+0xd8/0xf0
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168445]  [<ffffffff810c0b20>] ? kthread_worker_fn+0x180/0x180
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168446]  [<ffffffff817a2322>] ret_from_fork+0x42/0x70
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168447]  [<ffffffff810c0b20>] ? kthread_worker_fn+0x180/0x180
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168454] Code: 00 48 89 e5 5d 48 8b 40 c8 48 c1 e8 02 83 e0 01 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 8b 87 90 04 00 00 55 48 89 e5 <48> 8b 40 d8 5d c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168455] RIP  [<ffffffff810c10c0>] kthread_data+0x10/0x20
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168455]  RSP <ffff880036b538a8>
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168455] CR2: ffffffffffffffd8
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168456] ---[ end trace c909eb69bc3d483d ]---
+Sep 15 13:32:07 ct-desk01 kernel: [ 4354.168456] Fixing recursive fault but reboot is needed!

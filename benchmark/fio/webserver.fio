@@ -1,0 +1,96 @@
+[global]
+directory=/mnt/nfs_test
+direct=1
+group_reporting=1
+time_based=1
+runtime=240
+ioengine=libaio
+
+# Web服务器 - 静态文件读取（小文件，高并发）
+[web_static_read]
+name=webserver_static_read
+rw=randread
+bs=4k
+size=50M
+numjobs=32
+iodepth=8
+nrfiles=200
+
+# Web服务器 - 日志写入（顺序追加写）
+[web_log_write]
+name=webserver_log_write
+rw=write
+bs=4k
+size=100M
+numjobs=4
+iodepth=4
+
+# Web服务器 - 数据库文件访问（随机读写）
+[web_db_access]
+name=webserver_db_access
+rw=randrw
+bs=8k
+size=200M
+numjobs=8
+iodepth=16
+rwmixread=70
+nrfiles=50
+
+# Web服务器 - 缓存文件（小文件随机读）
+[web_cache_read]
+name=webserver_cache_read
+rw=randread
+bs=1k
+size=10M
+numjobs=24
+iodepth=4
+nrfiles=300
+
+# Web服务器 - 上传文件（大文件顺序写）
+[web_upload]
+name=webserver_upload
+rw=write
+bs=128k
+size=1G
+numjobs=2
+iodepth=8
+
+# Web服务器 - 下载文件（大文件顺序读）
+[web_download]
+name=webserver_download
+rw=read
+bs=128k
+size=1G
+numjobs=4
+iodepth=8
+
+# Web服务器 - 混合工作负载
+[web_mixed]
+name=webserver_mixed
+rw=randrw
+bs=4k
+size=100M
+numjobs=16
+iodepth=8
+rwmixread=85
+nrfiles=150
+
+# Web服务器 - 配置文件读取（极小文件）
+[web_config_read]
+name=webserver_config_read
+rw=randread
+bs=512
+size=1M
+numjobs=8
+iodepth=2
+nrfiles=100 
+
+[filebench_test]
+directory=/home/lll/nfs
+rw=readwrite
+bs=932k
+size=8192k
+numjobs=16
+rwmixread=90
+direct=1
+output-format=json

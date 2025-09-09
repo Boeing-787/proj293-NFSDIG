@@ -1,0 +1,63 @@
+[global]
+directory=/mnt/nfs_test
+direct=1
+group_reporting=1
+time_based=1
+runtime=120
+ioengine=sync
+
+# 同步顺序读测试
+[sync_seq_read]
+name=sync_sequential_read
+rw=read
+bs=4k
+size=1G
+numjobs=4
+
+# 同步顺序写测试
+[sync_seq_write]
+name=sync_sequential_write
+rw=write
+bs=4k
+size=1G
+numjobs=4
+
+# 同步随机读测试
+[sync_rand_read]
+name=sync_random_read
+rw=randread
+bs=4k
+size=1G
+numjobs=4
+
+# 同步随机写测试
+[sync_rand_write]
+name=sync_random_write
+rw=randwrite
+bs=4k
+size=1G
+numjobs=4
+
+# 同步大块读写测试
+[sync_large_read]
+name=sync_large_read
+rw=read
+bs=1M
+size=2G
+numjobs=2
+
+[sync_large_write]
+name=sync_large_write
+rw=write
+bs=1M
+size=2G
+numjobs=2
+
+# 同步混合读写测试
+[sync_mixed]
+name=sync_mixed_rw
+rw=randrw
+bs=4k
+size=1G
+numjobs=4
+rwmixread=70 

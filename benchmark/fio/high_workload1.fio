@@ -1,0 +1,13 @@
+[global]
+ioengine=libaio
+direct=1
+time_based
+size=128M
+directory=/mnt/nfs_test
+
+[simple-test]
+rw=readwrite
+rwmixread=50
+bs=1M
+numjobs=32
+
